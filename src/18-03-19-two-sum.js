@@ -14,6 +14,7 @@ function twoSum (nums, target) {
   for (let i=0; i<nums.length; i++) {
     const current = nums[i];
     const complementary = target - current;
+    /** 判断map[current]===0是因为下标从0开始 */
     if (map[current] || map[current] === 0) {
       return [map[current], i];
     }
