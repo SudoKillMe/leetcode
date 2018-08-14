@@ -19,6 +19,26 @@ const hammingDistance = function (x, y) {
   return result;
 }
 
+const hammingDistanceBinary = function (x, y) {
+  let xor = x^y;
+  if (xor === 0) {
+    return 0
+  }
+  let count = 0;
+  while (xor !== 0) {
+    xor &= xor - 1;
+    count++;
+  }
+  return count;
+}
+
 assert.equal(2, hammingDistance(1, 4));
 assert.equal(1, hammingDistance(1, 3));
 assert.equal(1, hammingDistance(1, 5));
+
+assert.equal(2, hammingDistanceBinary(1, 4));
+assert.equal(1, hammingDistanceBinary(1, 3));
+assert.equal(1, hammingDistanceBinary(1, 5));
+// 001
+// 100
+// 101
