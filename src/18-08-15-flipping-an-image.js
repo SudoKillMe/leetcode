@@ -15,8 +15,8 @@ const flipAndInvertImage = function (a) {
 
 const test1 = [[1, 1, 0], [1, 0, 1], [0, 0, 0]];
 const excepet1 = [[1, 0, 0], [0, 1, 0], [1, 1, 1]];
-// assert.equal(excepet1, flipAndInvertImage(test1));
+assert.deepEqual(excepet1, flipAndInvertImage(test1));
 
 const test2 = [[1, 1, 0, 0], [1, 0, 0, 1], [0, 1, 1, 1], [1, 0, 1, 0]];
 const excepet2 = [[1, 1, 0, 0], [0, 1, 1, 0], [0, 0, 0, 1], [1, 0, 1, 0]];
-assert.equal(excepet2, flipAndInvertImage(test2));
+assert.deepEqual(excepet2, flipAndInvertImage(test2));

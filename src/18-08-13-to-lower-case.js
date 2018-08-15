@@ -6,7 +6,7 @@ const toLowerCase = function (str) {
   let result = '';
   for (var i = 0; i < str.length; i++) {
     const code = str[i].charCodeAt();
-    if (code <= 90) {
+    if (65 <= code && code <= 90) {
       result += String.fromCharCode(code + 32);
     } else {
       result += str[i];
