@@ -1,12 +1,21 @@
 
 const moveZeroes = function (nums) {
-  // let index=0;
-  // let lastZ = nums.length -1;
-  // let len = nums.length;
+  let index=0;
+  let lastZ = nums.length -1;
+  let len = nums.length;
 
-  // while (nums[lastZ] === 0) {
-  //   lastZ--;
-  // }
+  while (nums[lastZ] === 0) {
+    lastZ--;
+  }
+
+  for (let i=0; i<lastZ; i++) {
+    if (nums[i] === 0) {
+      nums.splice(i, 1);
+      nums.push(0);
+      i--;
+      lastZ--;
+    }
+  }
 
   // while (index < len) {
   //   if (index === lastZ) {
@@ -22,8 +31,6 @@ const moveZeroes = function (nums) {
   // return nums;
 }
 
-function swap (arr, i1, i2) {
-  const tmp = arr[i1];
-  arr[i1] = arr[i2];
-  arr[i2] = tmp;
-}
+const test = [0, 1, 0, 3, 12];
+moveZeroes(test);
+console.log(test);
