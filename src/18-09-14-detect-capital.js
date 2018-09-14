@@ -3,7 +3,6 @@ const detectCapialUse = function (word) {
   const arr = word.split('');
   if (isUpper(arr[0])) {
     const left = arr.slice(1);
-    console.log('letf: ', left);
     return arr.every(c => {
       return isUpper(c);
     }) || left.every(c => {
