@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-const countBinarySubstrings = function(s) {
+const countBinarySubstringsDeprec = function(s) {
   const result = [];
   for (let i = 2; i <= s.length; i += 1) {
     const grouped = groupByCount(s, i);
@@ -39,29 +39,23 @@ function equal0and1(str) {
     (left.every(s => s === '0') && right.every(s => s === '1')) ||
     (left.every(s => s === '1') && right.every(s => s === '0'))
   );
-
-  // while (i < half && j >= half) {
-  //   if (str[i] === str[j]) {
-  //     return false;
-  //   }
-  //   i++;
-  //   j--;
-  // }
-  // return true;
-  // let zero = 0;
-  // let one = 0;
-  // for (let i = 0; i < str.length; i++) {
-  //   if (str[i] === '0') {
-  //     zero += 1;
-  //   } else {
-  //     one += 1;
-  //   }
-  // }
-  // console.log('==== str: ', str);
-  // console.log('====== zero: ', zero);
-  // console.log('====== one: ', one);
-  // return zero === one;
 }
+
+const countBinarySubstrings = function(s) {
+  let pre = 0;
+  let cur = 1;
+  let res = 0;
+  for (let i = 1; i < s.length; i++) {
+    if (s[i] === s[i - 1]) {
+      cur++;
+    } else {
+      res += Math.min(cur, pre);
+      pre = cur;
+      cur = 1;
+    }
+  }
+  return (res += Math.min(cur, pre));
+};
 
 const t1 = '00110011';
 const e1 = 6;
