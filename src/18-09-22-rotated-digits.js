@@ -1,0 +1,2 @@
+
+const rotatedDigits = function (N) {}
