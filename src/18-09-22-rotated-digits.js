@@ -7,6 +7,4 @@ const rotatedDigits = function (N) {}
 const test = '';
 const expe = '';
 
-
-
 // uncomplete
